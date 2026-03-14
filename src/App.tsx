@@ -21,7 +21,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/Yugantar-demo/">
         <header className="sticky top-0 z-50">
           <TopBar />
           <Navbar />

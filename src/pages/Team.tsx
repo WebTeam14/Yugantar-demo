@@ -39,6 +39,12 @@ communications, and ensuring timely project completion. His deep understanding
 of real estate market and strong networking skills helped establish long-term
 partnerships and deliver successful redevelopment outcomes`,
   },
+  {
+    name: "Ar. Piyush Tak",
+    role: "Principal Architect",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&h=400&auto=format&fit=crop",
+    message: "Design is not just what it looks like; it's how it works and how it shapes lives.",
+  },
 
 ];
 

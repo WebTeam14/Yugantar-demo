@@ -1,11 +1,12 @@
 import { CheckCircle, Target, Eye, Heart } from "lucide-react";
 import aboutImg from "@/assets/about-redevelopment.jpg";
-import galleryImg from "@/assets/gallery-3.jpg";
-
+import RajivGurav from "@/assets/Team/RajivGurav.png";
+import AbhijitPatil from "@/assets/Team/AbhijitPatil.png";
+import PhoolchandGupta from "@/assets/Team/PhoolchandGupta.png";
 const values = [
-  { icon: Target, title: "Our Mission", desc: "To accelerate urban transformation by delivering world-class redevelopment projects that elevate communities and create lasting value." },
+  { icon: Target, title: "Our Mission", desc: "To transform aging structures into modern landmarks while preserving the emotional value of the home." },
   { icon: Eye, title: "Our Vision", desc: "To become the most trusted name in redevelopment construction, setting benchmarks for quality, transparency, and timely delivery." },
-  { icon: Heart, title: "Our Values", desc: "Integrity, quality, transparency, and community-first approach guide every decision we make and every project we undertake." },
+  { icon: Heart, title: "Our Values", desc: "Reliability, Innovation, and Client Satisfaction." },
 ];
 
 const milestones = [
@@ -16,17 +17,61 @@ const milestones = [
   { year: "2024", text: "Launched sustainable green building initiative" },
 ];
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+const faqData = [
+  {
+    question: "Will redevelopment be delayed?",
+    answer: "With proper planning, expert coordination, and clear accountability, delays can be controlled and avoided.",
+  },
+  {
+    question: "Is self-redevelopment risky?",
+    answer: "Risk comes from lack of guidance, not from self-redevelopment. With the right Development Manager, risks are identified early and managed professionally.",
+  },
+  {
+    question: "Who will handle approvals and follow-ups?",
+    answer: "Yugantar manages all approvals, coordination, and follow-ups with authorities through appointed experts.",
+  },
+  {
+    question: "Will members have to run around offices?",
+    answer: "No. The society's role is decision-making. Execution and coordination are our responsibility.",
+  },
+  {
+    question: "How is self-redevelopment different from builder-led redevelopment?",
+    answer: "In self-redevelopment, the society controls design, timelines, quality, and finances, and retains all additional benefits such as extra area and sale proceeds. In builder-led redevelopment, most decisions and profits are controlled by the developer.",
+  },
+];
+
 const About = () => {
   return (
-    <div className="font-body pt-20">
+    <div className="font-body">
       {/* Hero Banner */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-brand" />
+
+        {/* Background Image */}
+        <div className="absolute inset-0 bg-[url('assets/about.jpg')] bg-cover bg-center bg-no-repeat"></div>
+
+        {/* Professional Balanced Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+
+        {/* Content */}
         <div className="relative container mx-auto px-4 text-center">
-          <p className="text-secondary uppercase tracking-[0.3em] text-sm font-semibold mb-3">Who We Are</p>
-          <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-foreground mb-4">About Us</h1>
-          <div className="w-20 h-1 bg-secondary mx-auto rounded-full" />
+          <p className="text-secondary uppercase tracking-[0.3em] text-sm font-semibold mb-3">
+            Who We Are
+          </p>
+
+          <h1 className="font-display text-4xl md:text-6xl font-bold text-white mb-4">
+            About Us
+          </h1>
+
+          <div className="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
         </div>
+
       </section>
 
       {/* Story */}
@@ -41,7 +86,7 @@ const About = () => {
               <h2 className="section-title text-left">Building Trust Since 1998</h2>
               <div className="w-20 h-1 bg-secondary my-4 rounded-full" />
               <p className="text-muted-foreground leading-relaxed mb-4">
-                युगांतर was born from a deep understanding that India's urban landscape needs thoughtful redevelopment — not just demolition and reconstruction, but a careful balance of modern engineering with respect for existing communities.
+                Yugantar is a dedicated team of professionals focused on the redevelopment of old buildings. They emphasize transparency, quality construction, and timely delivery, aiming to provide homeowners with modern living spaces that offer a superior lifestyle.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Over two decades, we have grown from a small team of passionate engineers to a full-service construction and redevelopment company. Our projects span residential complexes, commercial spaces, and mixed-use developments across Maharashtra.
@@ -60,22 +105,35 @@ const About = () => {
       </section>
 
       {/* Mission Vision Values */}
-      <section className="section-padding bg-muted">
-        <div className="container mx-auto text-center">
-          <h2 className="section-title">Our Foundation</h2>
-          <div className="decorative-line" />
+      <section className="relative section-padding">
+
+        {/* Background Image */}
+        <div className="absolute inset-0 bg-[url('assets/about-redevelopment.jpg')] bg-cover bg-center bg-no-repeat"></div>
+
+        {/* Overlay for readability */}
+        <div className="absolute inset-0 bg-black/60"></div>
+
+        {/* Content */}
+        <div className="relative container mx-auto text-center">
+          <h2 className="section-title text-white">Our Foundation</h2>
+          <div className="decorative-line mx-auto mb-8" />
+
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             {values.map((v) => (
-              <div key={v.title} className="bg-card p-8 rounded-lg shadow-lg">
+              <div
+                key={v.title}
+                className="bg-white/10 backdrop-blur-sm p-8 rounded-lg shadow-lg"
+              >
                 <div className="w-16 h-16 bg-gradient-warm rounded-full flex items-center justify-center mx-auto mb-6">
                   <v.icon className="w-8 h-8 text-secondary-foreground" />
                 </div>
-                <h3 className="font-display text-xl font-bold text-foreground mb-3">{v.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{v.desc}</p>
+                <h3 className="font-display text-xl font-bold text-white mb-3">{v.title}</h3>
+                <p className="text-white/80 text-sm leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>
         </div>
+
       </section>
 
       {/* Timeline */}
@@ -99,17 +157,67 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Image */}
+      {/* Founders */}
       <section className="section-padding bg-muted">
         <div className="container mx-auto text-center">
-          <h2 className="section-title">Our Team</h2>
-          <div className="decorative-line" />
-          <p className="section-subtitle mb-8">A dedicated team of engineers, architects, and project managers committed to excellence.</p>
-          <img src={galleryImg} alt="Our team" className="rounded-lg shadow-2xl w-full max-w-4xl mx-auto" />
+
+          <h2 className="section-title">Our Founders</h2>
+          <div className="decorative-line mx-auto mb-10"></div>
+
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
+
+            <div className="bg-white rounded-lg shadow-md p-4">
+              <img src={RajivGurav} alt="Rajiv Gurav" className="rounded-md mb-4 w-full" />
+              <h3 className="font-semibold text-lg">Rajiv Gurav</h3>
+              <p className="text-sm text-muted-foreground">Director</p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-md p-4">
+              <img src={AbhijitPatil} alt="Piyush Tak" className="rounded-md mb-4 w-full" />
+              <h3 className="font-semibold text-lg">MR.ABHIJIT PATIL</h3>
+              <p className="text-sm text-muted-foreground">Managing Partner</p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-md p-4">
+              <img src={PhoolchandGupta} alt="Subhash Patil" className="rounded-md mb-4 w-full" />
+              <h3 className="font-semibold text-lg">MR. PHOOLCHAND R. GUPTA</h3>
+              <p className="text-sm text-muted-foreground">Chemical Eng</p>
+            </div>
+
+
+
+          </div>
+
         </div>
       </section>
-    </div>
+
+      {/* FAQ Section */}
+      <section className="section-padding bg-background/50">
+        <div className="container mx-auto px-4 lg:px-8 max-w-3xl">
+          <div className="text-center mb-8">
+            <h2 className="section-title text-3xl font-bold">Frequently Asked Questions</h2>
+            <div className="decorative-line mx-auto" />
+            <p className="text-muted-foreground mt-4 text-sm max-w-2xl mx-auto">Addressing common concerns of housing societies considering redevelopment.</p>
+          </div>
+
+          <Accordion type="single" collapsible className="w-full space-y-2">
+            {faqData.map((item, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="border rounded-lg px-4 bg-card shadow-sm hover:shadow-md transition-shadow">
+                <AccordionTrigger className="text-left font-display text-base font-semibold py-4 hover:no-underline [&[data-state=open]]:text-secondary transition-colors">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-4">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+    </div >
   );
 };
 
 export default About;
+

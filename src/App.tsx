@@ -4,9 +4,11 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "./components/Navbar";
+import TopBar from "./components/TabBar";
 import Footer from "./components/Footer";
 import Index from "./pages/Index";
 import About from "./pages/About";
+import Team from "./pages/Team";
 import Services from "./pages/Services";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
@@ -20,10 +22,14 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Navbar />
+        <header className="sticky top-0 z-50">
+          <TopBar />
+          <Navbar />
+        </header>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
+          <Route path="/team" element={<Team />} />
           <Route path="/services" element={<Services />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />

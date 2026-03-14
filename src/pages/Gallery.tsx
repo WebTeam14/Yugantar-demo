@@ -28,15 +28,29 @@ const Gallery = () => {
   const filtered = filter === "All" ? images : images.filter((img) => img.category === filter);
 
   return (
-    <div className="font-body pt-20">
+    <div className="font-body">
       {/* Hero */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-brand" />
+
+        {/* Background Image */}
+        <div className="absolute inset-0 bg-[url('assets/about.jpg')] bg-cover bg-center bg-no-repeat"></div>
+
+        {/* Optional Dark Overlay */}
+        <div className="absolute inset-0 bg-black/50"></div>
+
+        {/* Content */}
         <div className="relative container mx-auto px-4 text-center">
-          <p className="text-secondary uppercase tracking-[0.3em] text-sm font-semibold mb-3">Our Portfolio</p>
-          <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-foreground mb-4">Gallery</h1>
-          <div className="w-20 h-1 bg-secondary mx-auto rounded-full" />
+          <p className="text-secondary uppercase tracking-[0.3em] text-sm font-semibold mb-3">
+            Our Portfolio
+          </p>
+
+          <h1 className="font-display text-4xl md:text-6xl font-bold text-white mb-4">
+            Gallery
+          </h1>
+
+          <div className="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
         </div>
+
       </section>
 
       {/* Filter + Grid */}
@@ -47,11 +61,10 @@ const Gallery = () => {
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-5 py-2 rounded-full font-body text-sm font-semibold transition-all ${
-                  filter === cat
-                    ? "bg-gradient-brand text-primary-foreground"
-                    : "bg-muted text-muted-foreground hover:bg-border"
-                }`}
+                className={`px-5 py-2 rounded-full font-body text-sm font-semibold transition-all ${filter === cat
+                  ? "bg-gradient-brand text-primary-foreground"
+                  : "bg-muted text-muted-foreground hover:bg-border"
+                  }`}
               >
                 {cat}
               </button>

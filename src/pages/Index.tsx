@@ -1,7 +1,19 @@
 import { Link } from "react-router-dom";
-import { Building2, Award, Users, ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade, Navigation } from "swiper/modules";
+import { motion, AnimatePresence } from "framer-motion";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import heroImg from "@/assets/hero-construction.jpg";
 import aboutImg from "@/assets/about-redevelopment.jpg";
+import gallery1 from "@/assets/gallery-1.jpg";
+import gallery2 from "@/assets/gallery-2.jpg";
+import gallery3 from "@/assets/gallery-3.jpg";
 
 const stats = [
   { number: "25+", label: "Years Experience" },
@@ -12,74 +24,145 @@ const stats = [
 
 const services = [
   {
-    icon: Building2,
+    image: gallery1,
     title: "Building Redevelopment",
     desc: "Expert redevelopment of old structures into modern, safe and beautiful living spaces.",
   },
   {
-    icon: Award,
+    image: gallery2,
     title: "Quality Construction",
     desc: "Premium construction with top-grade materials and adherence to the highest safety standards.",
   },
   {
-    icon: Users,
+    image: gallery3,
     title: "Project Management",
     desc: "End-to-end project management ensuring timely delivery and transparent communication.",
   },
 ];
+const heroSlides = [
+  {
+    image: heroImg,
+    subtitle: "YUGANTAR DEVELOPERS",
+    title: "Building the Future, Respecting the Past",
+    description: "Transforming urban landscapes through quality redevelopment and unwavering commitment to excellence.",
+  },
+  {
+    image: gallery1,
+    subtitle: "REDEVELOPMENT SPECIALISTS",
+    title: "Modern Homes for a Better Tomorrow",
+    description: "Expert redevelopment of old structures into modern, safe, and beautiful living spaces.",
+  },
+  {
+    image: gallery2,
+    subtitle: "EXCELLENCE IN QUALITY",
+    title: "Precision Engineering & Premium Materials",
+    description: "Premium construction with top-grade materials and adherence to the highest safety standards.",
+  },
+];
+
+import TestimonialSection from "@/components/TestimonialSection";
+// import TabBar from "@/components/TabBar"; // Removed duplicate
+
 
 const Index = () => {
+
   return (
     <div className="font-body">
+      {/* <TabBar /> Removed duplicate */}
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={heroImg} alt="Construction site" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-maroon/90 via-maroon/70 to-maroon/40" />
-        </div>
-        <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center animate-fade-in-up">
-          <p className="font-body text-secondary uppercase tracking-[0.3em] text-sm mb-4 font-semibold">
-            Redevelopment · Acceleration · Movement
-          </p>
-          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
-            Building the Future,<br />
-            <span className="text-secondary">Respecting the Past</span>
-          </h1>
-          <p className="font-body text-primary-foreground/80 text-lg md:text-xl max-w-2xl mx-auto mb-8">
-            Transforming urban landscapes through quality redevelopment, modern construction, and unwavering commitment to excellence.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 bg-gradient-warm text-secondary-foreground px-8 py-4 rounded-md font-body font-bold text-sm uppercase tracking-wider hover:opacity-90 transition-opacity"
-            >
-              Get a Quote <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 border-2 border-primary-foreground/40 text-primary-foreground px-8 py-4 rounded-md font-body font-bold text-sm uppercase tracking-wider hover:bg-primary-foreground/10 transition-colors"
-            >
-              Our Services
-            </Link>
-          </div>
-        </div>
+      <section className="relative h-screen overflow-hidden">
+        <Swiper
+          modules={[Autoplay, EffectFade, Navigation]}
+          effect={"fade"}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          loop={true}
+          className="h-full w-full"
+        >
+          {heroSlides.map((slide, index) => (
+            <SwiperSlide key={index}>
+              <div className="relative h-full w-full">
+                {/* Background Image with Ken Burns Effect */}
+                <motion.div
+                  initial={{ scale: 1.1 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 10, ease: "linear" }}
+                  className="absolute inset-0"
+                >
+                  <img
+                    src={slide.image}
+                    alt={slide.title}
+                    className="h-full w-full object-cover"
+                  />
+                </motion.div>
+
+                {/* Professional Balanced Gradient Overlay - Black contrast for visibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
+
+                {/* Content */}
+                <div className="relative z-10 h-full flex items-center justify-center text-center px-4">
+                  <div className="max-w-4xl mx-auto">
+                    <motion.p
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8 }}
+                      className="font-body text-secondary uppercase tracking-[0.4em] text-sm mb-6 font-bold drop-shadow-lg"
+                    >
+                      {slide.subtitle}
+                    </motion.p>
+                    <motion.h1
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 1, delay: 0.2 }}
+                      className="font-display text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-[1.1] drop-shadow-2xl"
+                    >
+                      {slide.title.split(",").map((line, i) => (
+                        <span key={i} className="block">
+                          {line.trim()}
+                          {i === 0 && slide.title.includes(",") && ","}
+                        </span>
+                      ))}
+                    </motion.h1>
+                    <motion.p
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 1, delay: 0.4 }}
+                      className="font-body text-white/90 text-lg md:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed font-medium drop-shadow-md"
+                    >
+                      {slide.description}
+                    </motion.p>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.8, delay: 0.6 }}
+                      className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+                    >
+                      <Link
+                        to="/contact"
+                        className="group relative inline-flex items-center gap-3 bg-gradient-warm text-secondary-foreground px-10 py-5 rounded-md font-body font-black text-sm uppercase tracking-widest hover:scale-105 transition-all duration-300 shadow-xl"
+                      >
+                        Get a Quote
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                      <Link
+                        to="/services"
+                        className="inline-flex items-center gap-2 border-2 border-white/40 text-white px-10 py-5 rounded-md font-body font-black text-sm uppercase tracking-widest hover:bg-white/10 hover:border-white transition-all duration-300 backdrop-blur-sm"
+                      >
+                        Our Services
+                      </Link>
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </section>
 
-      {/* Stats Bar */}
-      <section className="bg-gradient-warm py-8">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <div className="font-display text-3xl md:text-4xl font-bold text-secondary-foreground">
-                  {stat.number}
-                </div>
-                <div className="font-body text-sm text-secondary-foreground/80 mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* About Preview */}
       <section className="section-padding">
@@ -126,6 +209,23 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Stats Bar */}
+      <section className="bg-gradient-warm py-8">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <div className="font-display text-3xl md:text-4xl font-bold text-secondary-foreground">
+                  {stat.number}
+                </div>
+                <div className="font-body text-sm text-secondary-foreground/80 mt-1">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
       {/* Services Preview */}
       <section className="section-padding bg-muted">
         <div className="container mx-auto text-center">
@@ -142,13 +242,15 @@ const Index = () => {
             {services.map((service) => (
               <div
                 key={service.title}
-                className="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow group"
+                className="bg-card rounded-lg shadow-lg hover:shadow-xl transition-shadow group overflow-hidden flex flex-col"
               >
-                <div className="w-16 h-16 bg-gradient-warm rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                  <service.icon className="w-8 h-8 text-secondary-foreground" />
+                <div className="w-full h-48 overflow-hidden">
+                  <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 </div>
-                <h3 className="font-display text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                <p className="text-muted-foreground font-body text-sm leading-relaxed">{service.desc}</p>
+                <div className="p-8 flex-grow flex flex-col">
+                  <h3 className="font-display text-xl font-bold text-foreground mb-3">{service.title}</h3>
+                  <p className="text-muted-foreground font-body text-sm leading-relaxed flex-grow">{service.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -181,7 +283,13 @@ const Index = () => {
           </Link>
         </div>
       </section>
-    </div>
+
+
+      {/* Testimonials */}
+      <TestimonialSection />
+
+
+    </div >
   );
 };
 

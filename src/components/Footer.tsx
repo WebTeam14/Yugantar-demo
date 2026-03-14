@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/LOGO-F.png";
 
 const Footer = () => {
   return (
@@ -53,15 +53,16 @@ const Footer = () => {
             <div className="space-y-3 font-body text-sm">
               <div className="flex items-start gap-3 text-primary-foreground/80">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-secondary" />
-                <span>Mumbai, Maharashtra, India</span>
+                <span className="leading-tight">Office: 708, Shelton Cubix, Plot No. 87, Sector-15, C.B.D. Belapur,<br /> Navi Mumbai, 400 614</span>
               </div>
               <div className="flex items-center gap-3 text-primary-foreground/80">
                 <Phone className="w-4 h-4 flex-shrink-0 text-secondary" />
-                <span>+91 99999 99999</span>
+                <span>+91 9320296221
+                </span>
               </div>
               <div className="flex items-center gap-3 text-primary-foreground/80">
                 <Mail className="w-4 h-4 flex-shrink-0 text-secondary" />
-                <span>info@yugantar.com</span>
+                <span>yugantarservices@gmail.com</span>
               </div>
             </div>
           </div>

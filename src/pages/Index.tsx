@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, Shield, BarChart, HardHat } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,66 +9,69 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import heroImg from "@/assets/hero-construction.jpg";
-import aboutImg from "@/assets/about-redevelopment.jpg";
+import heroImg from "@/assets/hero-construction.png";
+import aboutImg from "@/assets/Slider1.png";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
+import slider1 from "@/assets/Slider1.png";
+import slider2 from "@/assets/Slider2.jpg"
+
 
 const stats = [
-  { number: "25+", label: "Years Experience" },
-  { number: "150+", label: "Projects Completed" },
-  { number: "500+", label: "Happy Families" },
-  { number: "50+", label: "Expert Team" },
+  { number: "20+", label: "Years of Experience" },
+  { number: "100%", label: "Society-Led Focus" },
+  { number: "CIDCO", label: "Area Expertise" },
+  { number: "Expert", label: "Advisory Panel" },
 ];
 
 const services = [
   {
     image: gallery1,
-    title: "Building Redevelopment",
-    desc: "Expert redevelopment of old structures into modern, safe and beautiful living spaces.",
+    icon: <Shield className="w-6 h-6 text-secondary" />,
+    title: "Self-Redevelopment Management",
+    desc: "Empowering societies to take control. We manage the entire process from the first General Body Resolution to final possession.",
   },
   {
     image: gallery2,
-    title: "Quality Construction",
-    desc: "Premium construction with top-grade materials and adherence to the highest safety standards.",
+    icon: <BarChart className="w-6 h-6 text-secondary" />,
+    title: "Project Financial Discipline",
+    desc: "Ensuring financial transparency and power remains with the society members, avoiding the risks of external builders.",
   },
   {
     image: gallery3,
-    title: "Project Management",
-    desc: "End-to-end project management ensuring timely delivery and transparent communication.",
+    icon: <HardHat className="w-6 h-6 text-secondary" />,
+    title: "Technical & Legal Advisory",
+    desc: "Expert guidance on MCS Act 1960, 79A compliance, and Town Planning through our panel of retired CIDCO & NMMC officials.",
   },
 ];
+
 const heroSlides = [
   {
+    image: slider1,
+    subtitle: "युगांतर - REDEVELOPMENT-ACCELERATION-MOVEMENT",
+    title: "Empowering Societies for Self-Redevelopment",
+    description: "Take Control. Redevelop Safely. Build Your Future with India's professional Development Management firm.",
+  },
+  {
     image: heroImg,
-    subtitle: "YUGANTAR DEVELOPERS",
-    title: "Building the Future, Respecting the Past",
-    description: "Transforming urban landscapes through quality redevelopment and unwavering commitment to excellence.",
+    subtitle: "TRANSPARENCY & TRUST",
+    title: "We are not Builders, We are your Partners",
+    description: "Acting exclusively for the society to ensure ownership and financial power remain with the members.",
   },
   {
-    image: gallery1,
-    subtitle: "REDEVELOPMENT SPECIALISTS",
-    title: "Modern Homes for a Better Tomorrow",
-    description: "Expert redevelopment of old structures into modern, safe, and beautiful living spaces.",
-  },
-  {
-    image: gallery2,
-    subtitle: "EXCELLENCE IN QUALITY",
-    title: "Precision Engineering & Premium Materials",
-    description: "Premium construction with top-grade materials and adherence to the highest safety standards.",
+    image: slider2,
+    subtitle: "EXPERT LEADERSHIP",
+    title: "Decades of Technical Excellence",
+    description: "Led by former NMMC and CIDCO experts specializing in urban development and legal compliance.",
   },
 ];
 
 import TestimonialSection from "@/components/TestimonialSection";
-// import TabBar from "@/components/TabBar"; // Removed duplicate
-
 
 const Index = () => {
-
   return (
     <div className="font-body">
-      {/* <TabBar /> Removed duplicate */}
       {/* Hero Section */}
       <section className="relative h-screen overflow-hidden">
         <Swiper
@@ -84,7 +87,6 @@ const Index = () => {
           {heroSlides.map((slide, index) => (
             <SwiperSlide key={index}>
               <div className="relative h-full w-full">
-                {/* Background Image with Ken Burns Effect */}
                 <motion.div
                   initial={{ scale: 1.1 }}
                   animate={{ scale: 1 }}
@@ -98,11 +100,9 @@ const Index = () => {
                   />
                 </motion.div>
 
-                {/* Professional Balanced Gradient Overlay - Black contrast for visibility */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
 
-                {/* Content */}
                 <div className="relative z-10 h-full flex items-center justify-center text-center px-4">
                   <div className="max-w-4xl mx-auto">
                     <motion.p
@@ -117,14 +117,9 @@ const Index = () => {
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 1, delay: 0.2 }}
-                      className="font-display text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-[1.1] drop-shadow-2xl"
+                      className="font-display text-4xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-[1.1] drop-shadow-2xl"
                     >
-                      {slide.title.split(",").map((line, i) => (
-                        <span key={i} className="block">
-                          {line.trim()}
-                          {i === 0 && slide.title.includes(",") && ","}
-                        </span>
-                      ))}
+                      {slide.title}
                     </motion.h1>
                     <motion.p
                       initial={{ opacity: 0, y: 30 }}
@@ -144,14 +139,8 @@ const Index = () => {
                         to="/contact"
                         className="group relative inline-flex items-center gap-3 bg-gradient-warm text-secondary-foreground px-10 py-5 rounded-md font-body font-black text-sm uppercase tracking-widest hover:scale-105 transition-all duration-300 shadow-xl"
                       >
-                        Get a Quote
+                        Start Your Project
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                      <Link
-                        to="/services"
-                        className="inline-flex items-center gap-2 border-2 border-white/40 text-white px-10 py-5 rounded-md font-body font-black text-sm uppercase tracking-widest hover:bg-white/10 hover:border-white transition-all duration-300 backdrop-blur-sm"
-                      >
-                        Our Services
                       </Link>
                     </motion.div>
                   </div>
@@ -162,47 +151,41 @@ const Index = () => {
         </Swiper>
       </section>
 
-
-
       {/* About Preview */}
       <section className="section-padding">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="font-body text-secondary uppercase tracking-[0.2em] text-sm font-semibold mb-2">
-                About Us
+                About Yugantar
               </p>
               <h2 className="section-title text-left">
-                Pioneering Urban<br />Redevelopment
+                Redevelopment is not just construction.<br />It affects generations.
               </h2>
               <div className="w-20 h-1 bg-secondary my-4 rounded-full" />
               <p className="text-muted-foreground leading-relaxed mb-6">
-                With over 25 years of experience in urban redevelopment, युगांतर has transformed countless aging structures into modern, safe, and beautiful living spaces. We believe in preserving the spirit of communities while building for the future.
+                Yugantar Services LLP is a professional Development Management firm focused on <strong>Self-Redevelopment</strong> for cooperative housing societies. We act exclusively for the society—not as builders, brokers, or contractors. This ensures that control, ownership, and financial power remain with your members.
               </p>
-              <ul className="space-y-3 mb-8">
-                {["RERA Registered Projects", "On-time Delivery Track Record", "Transparent Documentation", "Premium Quality Materials"].map((item) => (
-                  <li key={item} className="flex items-center gap-3 font-body text-foreground">
-                    <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                With over 20 years of experience in Navi Mumbai and CIDCO-regulated areas, we guide you through the entire journey—from the first General Body Resolution to final possession—ensuring every step is legal, transparent, and technically sound.
+              </p>
+
               <Link
                 to="/about"
                 className="inline-flex items-center gap-2 bg-gradient-brand text-primary-foreground px-6 py-3 rounded-md font-body font-semibold text-sm hover:opacity-90 transition-opacity"
               >
-                Learn More <ArrowRight className="w-4 h-4" />
+                Our Philosophy <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
             <div className="relative">
               <img
                 src={aboutImg}
-                alt="Before and after redevelopment"
+                alt="Expert Team"
                 className="rounded-lg shadow-2xl w-full"
               />
-              <div className="absolute -bottom-6 -left-6 bg-gradient-brand text-primary-foreground p-6 rounded-lg shadow-lg hidden md:block">
-                <div className="font-display text-3xl font-bold">25+</div>
-                <div className="font-body text-sm">Years of Trust</div>
+              <div className="absolute -bottom-6 -left-6 bg-gradient-brand text-primary-foreground p-6 rounded-lg shadow-lg hidden md:block text-center">
+                <div className="font-display text-3xl font-bold">20+</div>
+                <div className="font-body text-sm">Years of CIDCO Expertise</div>
               </div>
             </div>
           </div>
@@ -225,17 +208,16 @@ const Index = () => {
         </div>
       </section>
 
-
       {/* Services Preview */}
       <section className="section-padding bg-muted">
         <div className="container mx-auto text-center">
           <p className="font-body text-secondary uppercase tracking-[0.2em] text-sm font-semibold mb-2">
-            What We Do
+            Our Expertise
           </p>
-          <h2 className="section-title">Our Services</h2>
+          <h2 className="section-title">Comprehensive Development Management</h2>
           <div className="decorative-line" />
           <p className="section-subtitle mb-12">
-            Comprehensive construction and redevelopment solutions tailored to your needs.
+            We provide a trustworthy, technology-driven, and transparent framework to deliver high-value living spaces.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -244,8 +226,11 @@ const Index = () => {
                 key={service.title}
                 className="bg-card rounded-lg shadow-lg hover:shadow-xl transition-shadow group overflow-hidden flex flex-col"
               >
-                <div className="w-full h-48 overflow-hidden">
+                <div className="w-full h-48 overflow-hidden relative">
                   <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <div className="absolute top-4 left-4 bg-white p-2 rounded-full shadow-md">
+                    {service.icon}
+                  </div>
                 </div>
                 <div className="p-8 flex-grow flex flex-col">
                   <h3 className="font-display text-xl font-bold text-foreground mb-3">{service.title}</h3>
@@ -254,42 +239,31 @@ const Index = () => {
               </div>
             ))}
           </div>
-
-          <Link
-            to="/services"
-            className="inline-flex items-center gap-2 mt-10 bg-gradient-brand text-primary-foreground px-6 py-3 rounded-md font-body font-semibold text-sm hover:opacity-90 transition-opacity"
-          >
-            View All Services <ArrowRight className="w-4 h-4" />
-          </Link>
         </div>
       </section>
 
       {/* CTA */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-brand" />
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')" }} />
         <div className="relative container mx-auto px-4 text-center">
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4">
-            Ready to Transform Your Property?
+            Take Control of Your Society's Future
           </h2>
           <p className="font-body text-primary-foreground/80 text-lg max-w-xl mx-auto mb-8">
-            Get in touch with us today for a free consultation and site assessment.
+            Schedule a presentation with our expert advisory panel of retired CIDCO and NMMC officials.
           </p>
           <Link
             to="/contact"
             className="inline-flex items-center gap-2 bg-gradient-warm text-secondary-foreground px-8 py-4 rounded-md font-body font-bold text-sm uppercase tracking-wider hover:opacity-90 transition-opacity"
           >
-            Contact Us Today <ArrowRight className="w-4 h-4" />
+            Request a Consultation <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
 
-
       {/* Testimonials */}
       <TestimonialSection />
-
-
-    </div >
+    </div>
   );
 };
 

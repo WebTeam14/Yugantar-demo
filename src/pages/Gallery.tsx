@@ -5,7 +5,7 @@ import gallery3 from "@/assets/gallery-3.jpg";
 import gallery4 from "@/assets/gallery-4.jpg";
 import gallery5 from "@/assets/gallery-5.jpg";
 import gallery6 from "@/assets/gallery-6.jpg";
-import heroImg from "@/assets/hero-construction.jpg";
+import heroImg from "@/assets/hero-construction.png";
 import aboutImg from "@/assets/about-redevelopment.jpg";
 
 const categories = ["All", "Residential", "Commercial", "Construction"];

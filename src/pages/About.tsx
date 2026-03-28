@@ -4,8 +4,8 @@ import RajivGurav from "@/assets/Team/RajivGurav.png";
 import AbhijitPatil from "@/assets/Team/AbhijitPatil.png";
 import PhoolchandGupta from "@/assets/Team/PhoolchandGupta.png";
 const values = [
-  { icon: Target, title: "Our Mission", desc: "To transform aging structures into modern landmarks while preserving the emotional value of the home." },
-  { icon: Eye, title: "Our Vision", desc: "To become the most trusted name in redevelopment construction, setting benchmarks for quality, transparency, and timely delivery." },
+  { icon: Target, title: "Our Mission", desc: "Our mission is to empower housing societies to redevelop their properties independently by providing transparent, compliant, and technically sound solutions that maximize value, enhance living standards, and ensure long-term sustainability" },
+  { icon: Eye, title: "Our Vision", desc: "To redefine the self-redevelopment ecosystem by offering a trustworthy, technology-driven, and transparent management framework that delivers sustainable and high-value living spaces for urban communities." },
   { icon: Heart, title: "Our Values", desc: "Reliability, Innovation, and Client Satisfaction." },
 ];
 

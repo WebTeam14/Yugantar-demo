@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle, Shield, BarChart, HardHat } from "lucide-react";
+import { ArrowRight, Shield, BarChart, HardHat } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Navigation } from "swiper/modules";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 // Import Swiper styles
 import "swiper/css";
@@ -11,11 +11,14 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import heroImg from "@/assets/hero-construction.png";
 import aboutImg from "@/assets/Slider1.png";
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
 import slider1 from "@/assets/Slider1.png";
 import slider2 from "@/assets/Slider2.jpg"
+import redevlopment from "@/assets/redevelopment.jpg"
+import constructionfinance from "@/assets/construction-finance.jpg"
+import legal from "@/assets/legal.jpg"
+import gallery1 from "@/assets/gallery-1.jpg";
+import gallery2 from "@/assets/gallery-2.jpg";
+-pp
 
 
 const stats = [
@@ -27,19 +30,19 @@ const stats = [
 
 const services = [
   {
-    image: gallery1,
+    image: redevlopment,
     icon: <Shield className="w-6 h-6 text-secondary" />,
     title: "Self-Redevelopment Management",
     desc: "Empowering societies to take control. We manage the entire process from the first General Body Resolution to final possession.",
   },
   {
-    image: gallery2,
+    image: constructionfinance,
     icon: <BarChart className="w-6 h-6 text-secondary" />,
     title: "Project Financial Discipline",
     desc: "Ensuring financial transparency and power remains with the society members, avoiding the risks of external builders.",
   },
   {
-    image: gallery3,
+    image: legal,
     icon: <HardHat className="w-6 h-6 text-secondary" />,
     title: "Technical & Legal Advisory",
     desc: "Expert guidance on MCS Act 1960, 79A compliance, and Town Planning through our panel of retired CIDCO & NMMC officials.",

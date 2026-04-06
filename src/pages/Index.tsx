@@ -13,12 +13,11 @@ import heroImg from "@/assets/hero-construction.png";
 import aboutImg from "@/assets/Slider1.png";
 import slider1 from "@/assets/Slider1.png";
 import slider2 from "@/assets/Slider2.jpg"
-import redevlopment from "@/assets/redevelopment.jpg"
-import constructionfinance from "@/assets/construction-finance.jpg"
-import legal from "@/assets/legal.jpg"
+import redevlopment from "@/assets/Redevlopment.png"
+import constructionfinance from "@/assets/constructionfinance.jpg"
+import legal from "@/assets/legal.jpg"    
 import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
--pp
+import gallery2 from "@/assets/gallery-2.jpg";  
 
 
 const stats = [

@@ -1,6 +1,7 @@
 import { CheckCircle, Target, Eye, Heart, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+
 import aboutImg from "@/assets/about-redevelopment.jpg";
 import RajivGurav from "@/assets/Team/RajivGurav.png";
 import AbhijitPatil from "@/assets/Team/AbhijitPatil.png";
@@ -88,13 +89,9 @@ const About = () => {
       <section className="py-12 md:py-16 px-4 lg:px-8 bg-white">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-
             {/* Image Section */}
             <div className="relative">
-              {/* Frame Background */}
               <div className="absolute -top-6 -left-6 w-full h-full border border-gray-200 rounded-lg"></div>
-
-              {/* Image */}
               <img
                 src={Img}
                 alt="Our redevelopment work"
@@ -107,44 +104,31 @@ const About = () => {
               <p className="text-secondary uppercase tracking-[0.2em] text-sm font-semibold mb-3">
                 About Yugantar
               </p>
-
               <h2 className="text-3xl lg:text-4xl font-black text-[#800000] leading-snug uppercase tracking-tight">
                 Redevelopment is not merely construction—it is a decision that shapes generations.
               </h2>
-
               <div className="w-20 h-1 bg-[#800000] my-6 rounded-full"></div>
-
               <p className="text-gray-600 leading-relaxed mb-4">
                 Yugantar Services LLP is a professional Development Management firm specializing in Self-Redevelopment for cooperative housing societies. We operate with a singular commitment: to represent and protect the interests of the society. Unlike traditional models, we do not function as builders, brokers, or contractors—ensuring that complete control, ownership, and financial authority remain with the members themselves.
               </p>
-
               <p className="text-gray-600 leading-relaxed mb-4">
                 With over 20 years of experience in Navi Mumbai and CIDCO-regulated regions, we bring deep domain expertise and a thorough understanding of regulatory frameworks. Our role is to guide societies through the entire redevelopment lifecycle—from the first General Body Resolution to final possession—with a strong emphasis on legal compliance, transparency, and technical excellence.
               </p>
-
               <p className="text-gray-600 leading-relaxed">
                 At Yugantar, we don’t just manage projects—we enable societies to confidently take charge of their own redevelopment journey.
               </p>
             </div>
-
           </div>
         </div>
       </section>
 
       {/* Mission Vision Values */}
       <section className="relative py-12 md:py-16 px-4 lg:px-8">
-
-        {/* Background Image */}
         <div className="absolute inset-0 bg-[url('assets/about-redevelopment.jpg')] bg-cover bg-center bg-no-repeat"></div>
-
-        {/* Overlay for readability */}
         <div className="absolute inset-0 bg-black/60"></div>
-
-        {/* Content */}
         <div className="relative container mx-auto text-center">
           <h2 className="section-title text-white">Our Foundation</h2>
           <div className="decorative-line mx-auto mb-8" />
-
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             {values.map((v) => (
               <div
@@ -160,49 +144,31 @@ const About = () => {
             ))}
           </div>
         </div>
-
       </section>
 
       {/* Timeline */}
       <section className="py-12 md:py-16 px-4 lg:px-8 bg-[#fafafa]">
         <div className="container mx-auto text-center">
-
           <h2 className="text-3xl lg:text-5xl font-black text-[#800000] uppercase tracking-wide">
             Our Journey
           </h2>
           <div className="w-20 h-1 bg-[#800000] mx-auto my-6 rounded-full"></div>
 
           <div className="relative max-w-4xl mx-auto mt-12">
-
-            {/* Center Line */}
             <div className="absolute left-1/2 top-0 transform -translate-x-1/2 w-[2px] h-full bg-gray-200"></div>
-
             {milestones.map((m, i) => (
               <div
                 key={m.year}
-                className={`relative flex items-center mb-12 ${i % 2 === 0 ? "justify-start" : "justify-end"
-                  }`}
+                className={`relative flex items-center mb-12 ${i % 2 === 0 ? "justify-start" : "justify-end"}`}
               >
-                {/* Content Card */}
                 <div className="w-full md:w-1/2 px-4">
                   <div className="bg-white p-6 rounded-lg shadow-sm text-left transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
-
-                    {/* Year */}
-                    <h3 className="text-[#800000] font-black text-xl mb-2 transition-colors duration-300 group-hover:text-primary">
-                      {m.year}
-                    </h3>
-
-                    {/* Content (kept clean as per profile tone) */}
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {m.text}
-                    </p>
-
+                    <h3 className="text-[#800000] font-black text-xl mb-2">{m.year}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{m.text}</p>
                   </div>
                 </div>
-
-                {/* Dot */}
                 <div className="absolute left-1/2 transform -translate-x-1/2">
-                  <div className="w-5 h-5 bg-[#800000] rounded-full border-4 border-white shadow-lg transition-all duration-300 hover:scale-125"></div>
+                  <div className="w-5 h-5 bg-[#800000] rounded-full border-4 border-white shadow-lg"></div>
                 </div>
               </div>
             ))}
@@ -211,14 +177,12 @@ const About = () => {
       </section>
 
       {/* Founders */}
-      <section className="py-12 md:py-16 px-4 lg:px-8 bg-[#fafafa]">
+      <section className="py-12 md:py-16 px-4 lg:px-8 bg-white">
         <div className="container mx-auto text-center">
-
           <h2 className="text-3xl lg:text-4xl font-semibold text-gray-900">
             Our Founders
           </h2>
           <div className="w-16 h-[2px] bg-secondary mx-auto my-4"></div>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
             {[
               { img: RajivGurav, name: "Rajiv Gurav", role: "Director" },
@@ -227,26 +191,20 @@ const About = () => {
             ].map((founder, i) => (
               <Link key={i} to="/team" className="relative group perspective h-full block">
                 <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 group-hover:border-[#800000] group-hover:shadow-[0_30px_60px_rgb(128,0,0,0.15)] group-hover:-translate-y-3 transition-all duration-500 h-full flex flex-col items-center overflow-hidden">
-
-                  {/* Shiny Hover Effect Element */}
                   <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg] pointer-events-none"></div>
-
                   <div className="overflow-hidden rounded-xl w-full mb-6 relative">
                     <img
                       src={founder.img}
                       alt={founder.name}
                       className="w-full h-[380px] object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-
-                    {/* View Profile Overlay */}
                     <div className="absolute inset-0 bg-[#800000]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center">
-                      <div className="bg-white text-[#800000] rounded-full p-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 shadow-xl">
+                      <div className="bg-white text-[#800000] rounded-full p-3 shadow-xl">
                         <ArrowRight className="w-6 h-6" />
                       </div>
-                      <span className="text-white font-bold mt-3 tracking-widest uppercase text-xs transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">View Bio</span>
+                      <span className="text-white font-bold mt-3 tracking-widest uppercase text-xs">View Bio</span>
                     </div>
                   </div>
-
                   <div className="text-center pb-2 relative z-10">
                     <h3 className="text-xl font-bold text-gray-900 transition-colors duration-500 group-hover:text-[#800000]">
                       {founder.name}
@@ -260,12 +218,11 @@ const About = () => {
               </Link>
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* Our Experts Team */}
-      <section className="py-12 md:py-16 px-4 lg:px-8 bg-white">
+      {/* Experts Team */}
+      <section className="py-12 md:py-16 px-4 lg:px-8 bg-[#fafafa]">
         <div className="container mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl lg:text-4xl font-semibold text-gray-900">
@@ -273,7 +230,6 @@ const About = () => {
             </h2>
             <div className="w-16 h-[2px] bg-secondary mx-auto my-4"></div>
           </div>
-
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
             {[
               {
@@ -323,15 +279,12 @@ const About = () => {
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
       {/* Architectural Associates */}
       <section className="py-12 md:py-16 px-4 lg:px-8 relative overflow-hidden bg-[#fbf9f6]">
-        {/* Soft background texture effect */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 0, transparent 50%)", backgroundSize: "10px 10px" }}></div>
-
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-10">
             <h2 className="font-display text-4xl md:text-5xl font-extrabold text-[#800000] uppercase tracking-wider">
@@ -343,7 +296,6 @@ const About = () => {
               </h3>
             </div>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10 max-w-7xl mx-auto px-4">
             {[
               { img: gallery1, title: "Principal Architect", desc: "Mr. Soyuz Talib, an alumnus of Rachna Sansad's Academy of Architecture, founded STAPL in 1999. Prior to this, he worked as an Associate Architect and taught at multiple architecture colleges between 1993 and 1999." },
@@ -353,20 +305,15 @@ const About = () => {
             ].map((block, i) => (
               <div key={i} className="relative group perspective h-full">
                 <div className="bg-white rounded-2xl p-4 md:p-6 shadow-sm border border-gray-100 group-hover:border-[#800000] group-hover:shadow-[0_20px_40px_rgb(204,85,51,0.2)] group-hover:-translate-y-2 transition-all duration-500 h-full flex flex-col">
-                  {/* Image Block */}
                   <div className="overflow-hidden rounded-xl relative mb-6 border-b-4 border-transparent group-hover:border-[#800000] transition-colors duration-500 shrink-0 bg-white">
                     <img src={block.img} alt={block.title} className="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-700" />
                     <div className="absolute top-2 left-2 bg-white/95 backdrop-blur group-hover:bg-[#800000] shadow-lg px-3 py-1.5 rounded-lg z-20 transition-colors duration-500">
                       <div className="font-display font-black text-xl text-[#800000] group-hover:text-white transition-colors duration-500">0{i + 1}</div>
                     </div>
                   </div>
-
-                  {/* Content Block */}
                   <div className="flex-1 flex flex-col">
                     <h3 className="text-xl font-black text-gray-900 mb-4 leading-tight group-hover:text-[#800000] transition-colors duration-500 uppercase tracking-wide">{block.title}</h3>
-                    <p className="text-gray-700 leading-relaxed text-sm font-medium mt-auto">
-                      {block.desc}
-                    </p>
+                    <p className="text-gray-700 leading-relaxed text-sm font-medium mt-auto">{block.desc}</p>
                   </div>
                 </div>
               </div>
@@ -383,7 +330,6 @@ const About = () => {
             <div className="decorative-line mx-auto" />
             <p className="text-muted-foreground mt-4 text-sm max-w-2xl mx-auto">Addressing common concerns of housing societies considering redevelopment.</p>
           </div>
-
           <Accordion type="single" collapsible className="w-full space-y-2">
             {faqData.map((item, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border rounded-lg px-4 bg-card shadow-sm hover:shadow-md transition-shadow">
@@ -398,10 +344,8 @@ const About = () => {
           </Accordion>
         </div>
       </section>
-
     </div>
   );
 };
 
 export default About;
-

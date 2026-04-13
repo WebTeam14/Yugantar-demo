@@ -28,10 +28,10 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               {[
                 { name: "Home", path: "/" },
-                { name: "About Us", path: "/aboutus" },
+                { name: "About Us", path: "/about" },
                 { name: "Services", path: "/services" },
                 { name: "Gallery", path: "/gallery" },
-                { name: "Contact Us", path: "/contactus" },
+                { name: "Contact Us", path: "/contact" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
@@ -82,7 +82,6 @@ const Footer = () => {
                 <Mail className="w-4 h-4 text-yellow-400 flex-shrink-0" />
                 <span>yugantarservices@gmail.com</span>
               </div>
-
             </div>
           </div>
         </div>

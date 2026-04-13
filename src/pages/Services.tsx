@@ -1,17 +1,10 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade, Navigation } from "swiper/modules";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-// Images
-import aboutHero from "@/assets/about.jpg";
 
 // Images
 import gallery1 from "@/assets/gallery-1.jpg";
@@ -21,6 +14,7 @@ import gallery4 from "@/assets/gallery-4.jpg";
 import gallery5 from "@/assets/gallery-5.jpg";
 import gallery6 from "@/assets/gallery-6.jpg";
 import TestimonialSection from "@/components/TestimonialSection";
+
 const services = [
   {
     image: gallery1,
@@ -60,29 +54,6 @@ const services = [
   },
 ];
 
-const heroSlides = [
-  {
-    image: aboutHero,
-    title: "Our Services",
-    subtitle: "What We Offer",
-  },
-  {
-    image: gallery1,
-    title: "Building Redevelopment",
-    subtitle: "Modernizing Spaces",
-  },
-  {
-    image: gallery2,
-    title: "Quality Construction",
-    subtitle: "Excellence Built-in",
-  },
-];
-
-// Motion variants removed
-
-
-
-
 const Services = () => {
   return (
     <div className="font-body">
@@ -113,7 +84,6 @@ const Services = () => {
         </div>
       </section>
 
-
       {/* Services Grid */}
       <section className="py-20 bg-[#fafafa]">
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
@@ -122,13 +92,19 @@ const Services = () => {
               Explore Our Expertise
             </h2>
             <div className="w-16 h-1 bg-[#cc5533] mx-auto mt-4 rounded-full"></div>
-            <p className="text-gray-600 mt-6 text-lg max-w-2xl mx-auto font-medium">We offer comprehensive construction solutions tailored to the needs of cooperative housing societies.</p>
+            <p className="text-gray-600 mt-6 text-lg max-w-2xl mx-auto font-medium">
+              We offer comprehensive construction solutions tailored to the needs of cooperative housing societies.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {services.map((service, idx) => (
-              <div
+              <motion.div
                 key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
                 className="bg-white rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 border border-gray-100 overflow-hidden transition-all duration-500 flex flex-col group"
               >
                 <div className="w-full h-72 overflow-hidden relative">
@@ -138,14 +114,16 @@ const Services = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60" />
-                  <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <h3 className="font-display text-2xl font-black tracking-wide uppercase drop-shadow-md group-hover:text-secondary transition-colors duration-500">
+                  <div className="absolute bottom-6 left-6 right-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="font-display text-2xl font-black tracking-wide uppercase drop-shadow-md">
                       {service.title}
                     </h3>
                   </div>
                 </div>
-                <div className="p-8 p-10 flex flex-col flex-grow relative z-10">
-                  <p className="text-gray-600 mb-8 leading-relaxed flex-grow text-sm font-medium">{service.desc}</p>
+                <div className="p-8 flex flex-col flex-grow relative z-10">
+                  <p className="text-gray-600 mb-8 leading-relaxed flex-grow text-sm font-medium">
+                    {service.desc}
+                  </p>
                   <div className="h-px w-full bg-gray-100 mb-8" />
                   <ul className="grid grid-cols-1 gap-4 mt-auto">
                     {service.features.map((f) => (
@@ -156,21 +134,25 @@ const Services = () => {
                     ))}
                   </ul>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-24 bg-center bg-cover bg-no-repeat"
-        style={{ backgroundImage: `url(${gallery1})` }}>
+      <section
+        className="relative py-24 bg-center bg-cover bg-no-repeat"
+        style={{ backgroundImage: `url(${gallery1})` }}
+      >
         {/* Overlay */}
         <div className="absolute inset-0 bg-[#800000]/80"></div>
 
         {/* Content */}
         <div className="relative z-10 container mx-auto text-center px-4">
-          <h2 className="text-3xl md:text-5xl font-display font-black text-white uppercase tracking-tight mb-6">Need a Custom Solution?</h2>
+          <h2 className="text-3xl md:text-5xl font-display font-black text-white uppercase tracking-tight mb-6">
+            Need a Custom Solution?
+          </h2>
           <div className="w-20 h-1 bg-secondary mx-auto mb-8 rounded-full" />
           <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-medium leading-relaxed">
             Every project is unique. Contact us to discuss your specific requirements and get a tailored proposal from our experts.
@@ -189,9 +171,7 @@ const Services = () => {
       <TestimonialSection />
 
     </div>
-
   );
 };
 
 export default Services;
-
